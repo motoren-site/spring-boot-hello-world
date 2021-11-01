@@ -3,7 +3,7 @@ name: Build & Push to Digital Ocean Registry
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
     - name: Build latest
-      run: docker build -t registry.digitalocean.com/olsen/pricefinder:latest .
+      run: docker build -t registry.digitalocean.com/olsen/hello-world:latest .
 
     - name: Push to Digital Ocean Registry
-      run: docker push registry.digitalocean.com/olsen/pricefinder:latest
+      run: docker push registry.digitalocean.com/olsen/hello-world:latest
