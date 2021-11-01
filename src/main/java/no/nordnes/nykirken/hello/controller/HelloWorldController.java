@@ -9,11 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 @RestController
 public class HelloWorldController {
-    
+
     @GetMapping("/hello")
     public String hello() {
         log.info("Hello......");
         return "hello";
     }
+
+    @GetMapping("/health")
+    public String health() {
+        return "ok";
+    }
+
 
 }
