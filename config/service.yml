@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: price
+  namespace: apps
+  labels:
+    k8s-app: price
+spec:
+  ports:
+      port: 80
+      targetPort: 8080
+  selector:
+    k8s-app: price
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+status:
+  loadBalancer: {}
