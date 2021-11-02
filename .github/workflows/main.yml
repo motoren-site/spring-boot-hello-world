@@ -28,6 +28,9 @@ jobs:
       with:
         personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
         clusterName: k8s-miles
+        
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f config/deployment.yml
 
-    - name: Upgrade nodes
-      run: kubectl rollout restart deployment hello-world -n apps
+    - name: Check status
+      run: kubectl rollout status deployment/hello-world -n apps
