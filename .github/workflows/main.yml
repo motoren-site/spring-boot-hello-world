@@ -37,3 +37,9 @@ jobs:
 
     - name: Check status
       run: kubectl rollout status deployment/hello-world -n apps
+      
+    - name: Remove old containers
+      uses: ripplr-io/docr-image-remove@v1
+      with:
+        image_repository: registry.digitalocean.com/olsen
+        buffer_size: 2
