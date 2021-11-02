@@ -1,42 +1,30 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: price
+  name: hello-world
   namespace: apps
-  resourceVersion: '280456'
   labels:
-    k8s-app: price
-  annotations:
-    deployment.kubernetes.io/revision: '1'
+    k8s-app: hello-world
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      k8s-app: price
+      k8s-app: hello-world
   template:
     metadata:
-      name: price
+      name: hello-world
       labels:
-        k8s-app: price
+        k8s-app: hello-world
     spec:
       containers:
-        - name: price
-          image: registry.digitalocean.com/olsen/pricefinder
-          env:
-            - name: DATABASE_URL
-              value: >-
-                mongodb+srv://doapps-6f170bf1-183e-4e8e-84c4-203490890b08:62sjA57iI90r3LK4@db-mongodb-fra1-nordnes-50035d69.mongo.ondigitalocean.com/admin?authSource=admin&tls=true
-          resources: {}
+        - name: hello-world
+          image: 'registry.digitalocean.com/olsen/hello-world:latest'
           imagePullPolicy: Always
+          securityContext:
+            privileged: false
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-      securityContext: {}
-      schedulerName: default-scheduler
   strategy:
     type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 25%
-  revisionHistoryLimit: 10
-  progressDeadlineSeconds: 600
+  minReadySeconds: 15
