@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@RequestMapping("/api")
+@RequestMapping("/")
 @RestController
 public class HelloWorldController {
 
@@ -16,10 +16,6 @@ public class HelloWorldController {
         return "hello";
     }
 
-    @GetMapping("/health")
-    public String health() {
-        return "ok";
-    }
 
 
 }

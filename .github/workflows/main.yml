@@ -1,5 +1,4 @@
 name: Build & Push to Digital Ocean Registry
-
 on:
   push:
     branches:
