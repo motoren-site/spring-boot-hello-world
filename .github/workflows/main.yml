@@ -21,17 +21,17 @@ jobs:
       run: docker build -t registry.digitalocean.com/olsen/hello-world:$(echo $GITHUB_SHA | head -c7) .
 
     - name: Push to Digital Ocean Registry
-      run: docker push registry.digitalocean.com/olsen/hello-world
-    
+      run: docker push registry.digitalocean.com/olsen/hello-world:$(echo $GITHUB_SHA | head -c7)
+
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
       with:
         personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
         clusterName: k8s-miles
-      
+
     - name: Update deployment file
       run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/olsen/hello-world:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
-        
+
     - name: Deploy to Kubernetes
       run: kubectl apply -f config/deployment.yml
 
