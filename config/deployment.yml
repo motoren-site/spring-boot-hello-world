@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: 'registry.digitalocean.com/olsen/hello-world:latest'
+          image: registry.digitalocean.com/olsen/hello-world
           imagePullPolicy: Always
           securityContext:
             privileged: false
