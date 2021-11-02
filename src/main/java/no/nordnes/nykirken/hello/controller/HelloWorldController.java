@@ -18,7 +18,7 @@ public class HelloWorldController {
     public String hello() {
         log.info("Hello......");
         String hostName = System.getenv("HOSTNAME");
-        return "<html><body><h1>Hallo fra " + hostName +"....klokken er: " + LocalTime.now() +"</h1></body></html>";
+        return "<html><body><h1>Hallo fra " + hostName +"....</h1><p>Klokken er: " + LocalTime.now() +"</p></body></html>";
     }
 
 }
