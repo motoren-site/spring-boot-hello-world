@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Optional;
 
 @Slf4j
@@ -17,7 +18,7 @@ public class HelloWorldController {
     public String hello() {
         log.info("Hello......");
         String hostName = System.getenv("HOSTNAME");
-        return "<html><body><h1>Hallo fra " + hostName +"....klokken er: " + LocalDateTime.now() +"</h1></body></html>";
+        return "<html><body><h1>Hallo fra " + hostName +"....klokken er: " + LocalTime.now() +"</h1></body></html>";
     }
 
 }
