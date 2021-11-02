@@ -22,7 +22,7 @@ public class HelloWorldController {
     }
 
     private String getTime() {
-        return LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        return LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss.SSS"));
     }
 
 }
