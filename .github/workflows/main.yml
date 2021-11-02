@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-
-
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,10 +26,8 @@ jobs:
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
       with:
-        personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
+        personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
         clusterName: k8s-miles
 
     - name: Upgrade nodes
       run: kubectl rollout restart deployment hello-world -n apps
-      
-      
