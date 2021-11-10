@@ -1,16 +1,16 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: price
+  name: hello-world
   namespace: apps
   labels:
-    k8s-app: price
+    k8s-app: hello-world
 spec:
   ports:
       port: 80
       targetPort: 8080
   selector:
-    k8s-app: price
+    k8s-app: hello-world
   type: ClusterIP
   ipFamilyPolicy: SingleStack
 status:
