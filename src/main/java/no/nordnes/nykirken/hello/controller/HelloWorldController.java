@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 @RestController
 public class HelloWorldController {
 
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String hello() {
         log.info("Hello......");
         String hostName = System.getenv("HOSTNAME");
