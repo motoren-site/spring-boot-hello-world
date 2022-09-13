@@ -22,9 +22,15 @@ spec:
           imagePullPolicy: Always
           securityContext:
             privileged: false
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 300m
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
+
   strategy:
     type: RollingUpdate
   minReadySeconds: 15
