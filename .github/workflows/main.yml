@@ -40,10 +40,10 @@ jobs:
       run: kubectl apply -f config/deployment.yml
 
     - name: Check deplyments Kubernetes
-      run: kubectl get deployments
+      run: kubectl get deployments -A
 
     - name: Add Hpa
-      run: kubectl autoscale deployment hello-world --cpu-percent=50 --min=2 --max=5
+      run: kubectl autoscale deployment hello-world --cpu-percent=50 --min=2 --max=5 -A
 
     - name: Deploy Service
       run: kubectl apply -f config/service.yml
