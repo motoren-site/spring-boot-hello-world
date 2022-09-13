@@ -24,13 +24,12 @@ spec:
             privileged: false
           resources:
             limits:
-              cpu: 500m
+              cpu: 200m
             requests:
-              cpu: 300m
+              cpu: 100m
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-
   strategy:
     type: RollingUpdate
   minReadySeconds: 15
