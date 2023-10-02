@@ -25,16 +25,16 @@ jobs:
         password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
     - name: Build latest
-      run: mvn compile jib:build -Dimage=registry.digitalocean.com/olsen/hello-world:$(echo $GITHUB_SHA | head -c7)
+      run: mvn compile jib:build -Dimage=${{secrets.CONTAINER_URL}}hello-world:$(echo $GITHUB_SHA | head -c7)
 
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
       with:
         personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
-        clusterName: k8s-miles
+        clusterName: ${{secrets.K8S_CLUSTER_NAME}}
 
     - name: Update deployment file
-      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/olsen/hello-world:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
+      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|${{secrets.CONTAINER_URL}}hello-world:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
     - name: Deploy to Kubernetes
       run: kubectl apply -f config/deployment.yml
@@ -57,5 +57,5 @@ jobs:
     - name: Remove old containers
       uses: ripplr-io/docr-image-remove@v1
       with:
-        image_repository: registry.digitalocean.com/olsen
+        image_repository: ${{secrets.CONTAINER_URL}}hello-world
         buffer_size: 2

@@ -6,8 +6,8 @@ spec:
   scaleTargetRef:
     kind: Deployment
     name: hello-world
-  minReplicas: 3
-  maxReplicas: 4
+  minReplicas: 2
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:
