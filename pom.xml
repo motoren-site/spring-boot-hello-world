@@ -57,13 +57,13 @@
 			<plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.1.4</version>
+        <version>3.4.0</version>
         <configuration>
 			<from>
 				<image>openjdk:17-jdk-alpine</image>
 			</from>
 			<to>
-            <image>olsen/hello-world</image>
+            <image>containers/hello-world</image>
           </to>
         </configuration>
       </plugin>
