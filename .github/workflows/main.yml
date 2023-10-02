@@ -24,8 +24,9 @@ jobs:
         username: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
         password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
-    - name: Build latest
-      run: mvn compile jib:build -Dimage=${{secrets.CONTAINER_URL}}hello-world:$(echo $GITHUB_SHA | head -c7)
+    - name: Build the Docker image
+      uses: actions/checkout@v3
+      run: docker build . --file Dockerfile --tag my-image-name:${{secrets.CONTAINER_URL}}hello-world:$(echo $GITHUB_SHA | head -c7)
 
     - name: Set up kubectl
       uses: matootie/dokube@v1.3.4
