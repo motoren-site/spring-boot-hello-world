@@ -31,7 +31,7 @@ jobs:
         uses: matootie/dokube@v1.3.4
         with:
           personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
-          clusterName: ${{secrets.K8S_CLUSTER_NAME}}
+          clusterName: k8s-bergen
 
       - name: Update deployment file
         run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|${{secrets.CONTAINER_URL}}hello-world:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
