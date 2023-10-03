@@ -46,7 +46,7 @@ jobs:
         run: kubectl get deployments --namespace apps
 
       - name: Add Hpa
-        run: kubectl autoscale deployment hello-world --cpu-percent=50 --min=2 --max=3 --namespace apps
+        run: kubectl autoscale deployment hello-world --cpu-percent=30 --min=2 --max=3 --namespace apps
 
       - name: Deploy Service
         run: kubectl apply -f config/service.yml
