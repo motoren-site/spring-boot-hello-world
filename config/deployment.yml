@@ -35,4 +35,4 @@ spec:
       maxSurge: 1
       maxUnavailable: 1
     type: RollingUpdate
-  minReadySeconds: 15
+  minReadySeconds: 45
