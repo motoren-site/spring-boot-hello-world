@@ -11,8 +11,8 @@ spec:
     - host: app.ostepopp.site
       http:
         paths:
-          - pathType: Prefix
-            path: "/hello(/|$)(.*)"
+          - path: "/hello(/|$)(.*)"
+            pathType: Prefix
             backend:
               service:
                 name: hello-world
