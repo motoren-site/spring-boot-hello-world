@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
       - name: Build the Docker image
-        run: docker build -t ${{secrets.CONTAINER_URL}}deno-app:$(echo $GITHUB_SHA | head -c7) .
+        run: docker build -t ${{secrets.CONTAINER_URL}}hello-world:$(echo $GITHUB_SHA | head -c7) .
 
       - name: Set up kubectl
         uses: matootie/dokube@v1.3.4
