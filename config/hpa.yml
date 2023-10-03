@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     kind: Deployment
     name: hello-world
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 3
   metrics:
     - type: Resource
@@ -14,4 +14,4 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 50
+          averageUtilization: 40

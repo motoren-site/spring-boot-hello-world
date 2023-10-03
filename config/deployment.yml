@@ -31,5 +31,8 @@ spec:
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
   strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
     type: RollingUpdate
   minReadySeconds: 15
