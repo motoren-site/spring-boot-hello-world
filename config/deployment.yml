@@ -32,11 +32,11 @@ spec:
         preStop:
           exec:
             command: ["sh", "-c", "sleep 10"]  #set prestop hook
-      terminationGracePeriodSeconds: 45
+      terminationGracePeriodSeconds: 60
       dnsPolicy: ClusterFirst
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
     type: RollingUpdate
-  minReadySeconds: 45
+  minReadySeconds: 60
