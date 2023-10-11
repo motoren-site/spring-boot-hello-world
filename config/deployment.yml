@@ -28,10 +28,10 @@ spec:
             requests:
               cpu: "50m"
       restartPolicy: Always
-      lifecycle:
-        preStop:
-          exec:
-            command: ["sh", "-c", "sleep 10"]  #set prestop hook
+      #lifecycle:
+       # preStop:
+        #  exec:
+         #   command: ["sh", "-c", "sleep 10"]  #set prestop hook
       terminationGracePeriodSeconds: 60
       dnsPolicy: ClusterFirst
   strategy:
