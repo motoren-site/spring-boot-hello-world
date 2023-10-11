@@ -45,6 +45,9 @@ jobs:
       - name: Check deplyments Kubernetes
         run: kubectl get deployments --namespace apps
 
+      - name: Delete HPA
+        run: kubectl delete hpa hello-world --namespace apps
+
       - name: Add Hpa
         run: kubectl autoscale deployment hello-world --cpu-percent=30 --min=2 --max=3 --namespace apps
 
