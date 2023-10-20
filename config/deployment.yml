@@ -24,21 +24,20 @@ spec:
             httpGet:
               path: /
               port: 8080
-            initialDelaySeconds: 60
-            periodSeconds: 10
+              initialDelaySeconds: 60
+              periodSeconds: 10
           securityContext:
             privileged: false
           resources:
             limits:
-              cpu: "100m"
+              cpu: "200m"
             requests:
-              cpu: "50m"
+              cpu: "200m"
       restartPolicy: Always
       #lifecycle:
       # preStop:
       #  exec:
       #   command: ["sh", "-c", "sleep 10"]  #set prestop hook
-      terminationGracePeriodSeconds: 60
       dnsPolicy: ClusterFirst
   strategy:
     rollingUpdate:
