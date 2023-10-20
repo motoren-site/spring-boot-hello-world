@@ -24,15 +24,15 @@ spec:
             httpGet:
               path: /
               port: 8080
-              initialDelaySeconds: 60
-              periodSeconds: 10
+            initialDelaySeconds: 60
+            periodSeconds: 10
           securityContext:
             privileged: false
           resources:
             limits:
-              cpu: "200m"
+              cpu: "300m"
             requests:
-              cpu: "200m"
+              cpu: "300m"
       restartPolicy: Always
       #lifecycle:
       # preStop:
