@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
-              path: /hello
+              path: /
               port: 8080
             initialDelaySeconds: 45
             periodSeconds: 10
