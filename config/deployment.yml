@@ -30,9 +30,9 @@ spec:
             privileged: false
           resources:
             limits:
-              cpu: "300m"
+              cpu: "400m"
             requests:
-              cpu: "300m"
+              cpu: "400m"
       restartPolicy: Always
       #lifecycle:
       # preStop:
