@@ -29,9 +29,15 @@ spec:
               cpu: "50m"
       restartPolicy: Always
       #lifecycle:
-       # preStop:
-        #  exec:
-         #   command: ["sh", "-c", "sleep 10"]  #set prestop hook
+      # preStop:
+      #  exec:
+      #   command: ["sh", "-c", "sleep 10"]  #set prestop hook
+      livenessProbe:
+        httpGet:
+          path: /hello
+          port: 8080
+      initialDelaySeconds: 3
+      periodSeconds: 10
       terminationGracePeriodSeconds: 60
       dnsPolicy: ClusterFirst
   strategy:
