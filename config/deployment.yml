@@ -22,9 +22,10 @@ spec:
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
-              path: /actuator/health
+              path: /actuator/health/readiness
               port: 8080
-            initialDelaySeconds: 55
+            initialDelaySeconds: 70
+            timeoutSeconds: 5
             periodSeconds: 10
           securityContext:
             privileged: false
