@@ -22,9 +22,9 @@ spec:
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
-              path: /
+              path: /actuator/health
               port: 8080
-            initialDelaySeconds: 60
+            initialDelaySeconds: 10
             periodSeconds: 10
           securityContext:
             privileged: false
@@ -32,7 +32,7 @@ spec:
             limits:
               cpu: "150m"
             requests:
-              cpu: "50m"
+              cpu: "60m"
       restartPolicy: Always
       #lifecycle:
       # preStop:
@@ -43,5 +43,5 @@ spec:
   strategy:
     rollingUpdate:
       maxSurge: 1
-      maxUnavailable: 0
+      maxUnavailable: 25%
     type: RollingUpdate
