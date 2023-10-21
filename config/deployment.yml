@@ -24,14 +24,14 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
-            initialDelaySeconds: 70
+            initialDelaySeconds: 90
             timeoutSeconds: 5
             periodSeconds: 10
           securityContext:
             privileged: false
           resources:
             limits:
-              cpu: "150m"
+              cpu: "200m"
             requests:
               cpu: "60m"
       restartPolicy: Always
